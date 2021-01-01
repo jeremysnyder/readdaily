@@ -12,12 +12,16 @@ const openReading = passages => {
 }
 
 function NoReading(props) {
+  const { loadedDay } = props
   return (
     <Card className='reading'>
       <CardHeader title='No readings today' disableTypography={true} className='reading-header' />
-      <CardContent className='reading-body'>
-        Consider meditating on today's sermon text(s), or catching up on last week's readings...
-      </CardContent>
+      {loadedDay && loadedDay.day() === 0 // Sunday
+        ?
+        <CardContent className='reading-body'>
+          Consider meditating on today's sermon text(s), or catching up on last week's readings...
+        </CardContent>
+        : null}
     </Card>
   )
 }
@@ -29,20 +33,20 @@ function Reading(props) {
       <CardHeader title={title} disableTypography={true} className='reading-header' />
       <CardActions className='reading-body'>
         {reading}
-        <ReadButton passage={reading} />
+        <ReadButton reading={reading} />
       </CardActions>
     </Card>
   )
 }
 
 function ReadButton(props) {
-  const { passage } = props
+  const { reading } = props
   return <Button
     variant="contained"
     color="default"
     startIcon={<LibraryBooksIcon />}
     style={{ marginLeft: 'auto' }}
-    onClick={openReading.bind(null, [passage])}
+    onClick={openReading.bind(null, [{ reading }])}
   >
     Read
   </Button>
@@ -55,7 +59,6 @@ function ReadAllSection(props) {
       variant="contained"
       color="default"
       startIcon={<LibraryBooksIcon />}
-
       onClick={openReading.bind(null, readings)}
     >
       Read All Passages
@@ -64,12 +67,12 @@ function ReadAllSection(props) {
 }
 
 export function ReadingList(props) {
-  const { readings } = props
+  const { readings, loadedDay } = props
   return readings && readings.length
     ? <div>
       {readings.map(x => <Reading key={x.title} title={x.title} reading={x.reading} />)}
       <ReadAllSection readings={readings} />
     </div>
-    : <NoReading />
+    : <NoReading loadedDay={loadedDay} />
 }
 

@@ -35,9 +35,8 @@ function App(props) {
       {
         showConfig
           ? <Info />
-          : <Readings data={data} loadPlanType={loadPlanType} planTimeframe={planTimeframe} />
+          : <Readings data={data} loadedDay={loadedDay} loadPlanType={loadPlanType} planTimeframe={planTimeframe} />
       }
-
     </div>
   )
 }

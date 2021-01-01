@@ -9,33 +9,32 @@ const loadReadings = (readingFormat, readingData) => {
   const readings = []
   switch (readingFormat) {
     case '1':
-      if (readingData.otReading) readings.push(toReading('Old Testament 1', readingData.otReading))
-      if (readingData.ot2Reading) readings.push(toReading('Old Testament 2', readingData.ot2Reading))
+      if (readingData.history1) readings.push(toReading('History 1', readingData.history1))
+      if (readingData.history2) readings.push(toReading('History 2', readingData.history2))
       break
     case '2:1':
-      if (readingData.otReading) readings.push(toReading('Old Testament', readingData.otReading))
+      if (readingData.history1) readings.push(toReading('History', readingData.history1))
       break
     case '2:2':
-      if (readingData.ot2Reading) readings.push(toReading('Old Testament', readingData.ot2Reading))
+      if (readingData.history2) readings.push(toReading('History', readingData.history2))
       break
     default:
       break
   }
 
-  if (readingData.psalmsReading) readings.push(toReading('Psalms', readingData.psalmsReading))
-  if (readingData.gapReading) readings.push(toReading('Gospels/Acts/Proverbs', readingData.gapReading))
-  if (readingData.letterReading) readings.push(toReading('Letters', readingData.letterReading))
+  if (readingData.wisdom) readings.push(toReading('Wisdom', readingData.wisdom))
+  if (readingData.nt) readings.push(toReading('New Testament', readingData.nt))
 
   return readings
 }
 
 export function Readings(props) {
-  const { data, loadPlanType, planTimeframe } = props
+  const { data, loadedDay, loadPlanType, planTimeframe } = props
   const readings = loadReadings(planTimeframe, data)
 
   return (
-    <div className='app'>
-      <ReadingList readings={readings} />
+    <div className='page'>
+      <ReadingList readings={readings} loadedDay={loadedDay} />
       <BottomBar plan={planTimeframe} updatePlanTimeframe={loadPlanType} />
     </div>
   )

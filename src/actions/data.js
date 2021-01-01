@@ -12,7 +12,7 @@ const readingDay = value => {
 }
 
 export const loadDay = date => dispatch => {
-  const action = payload => dispatch({ type: 'LOAD_DAY', payload })
+  const action = payload => dispatch({ type: 'LOAD_DAY', payload: { date, ...payload } })
   const day = readingDay(date)
   if (day) {
     fetch(`./data/chapter-bible-reading-plan/${day}.json`).then(response => {

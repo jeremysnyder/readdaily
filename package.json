@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "private": true,
   "license": "UNLICENSED",
-  "homepage": "https://jeremysnyder.github.io/readdaily2/",
+  "homepage": "https://jeremysnyder.github.io/readdaily2020/",
   "dependencies": {
     "@material-ui/core": "^4.5.0",
     "@material-ui/icons": "^4.4.3",
