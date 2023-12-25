@@ -1,6 +1,8 @@
 {
-  "history1": "Genesis 42-43",
-  "history2": "2 Chronicles 7",
-  "wisdom": "Psalm 19",
-  "nt": "Matthew 20"
+  "ot1": "Genesis 37",
+  "ot2": "Proverbs 2",
+  "ot3": "2 Chronicles 7",
+  "fullot": "Leviticus 19-21",
+  "psalms": "Psalms 42-43",
+  "nt": "1 Corinthians 2"
 }

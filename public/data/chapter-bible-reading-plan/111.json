@@ -1,6 +1,8 @@
 {
-  "history1": "Numbers 9",
-  "history2": "Isaiah 42",
-  "wisdom": "Psalm 58",
-  "nt": "Luke 20"
+  "ot1": "Leviticus 21",
+  "ot2": "2 Kings 14",
+  "ot3": "Jeremiah 31",
+  "fullot": "2 Kings 22-25",
+  "psalms": "Psalms 127-128",
+  "nt": "Romans 4"
 }

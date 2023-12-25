@@ -1,6 +1,8 @@
 {
-  "history1": "Genesis 45",
-  "history2": "2 Chronicles 9",
-  "wisdom": "Psalm 21",
-  "nt": "Matthew 22"
+  "ot1": "Genesis 39",
+  "ot2": "Proverbs 4",
+  "ot3": "2 Chronicles 9",
+  "fullot": "Leviticus 25-27",
+  "psalms": "Psalms 45",
+  "nt": "1 Corinthians 4"
 }

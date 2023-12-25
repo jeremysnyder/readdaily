@@ -1,6 +1,8 @@
 {
-  "history1": "Joshua 13",
-  "history2": "Jeremiah 38",
-  "wisdom": "Psalm 90",
-  "nt": "Matthew 12"
+  "ot1": "Deuteronomy 23",
+  "ot2": "Isaiah 36",
+  "ot3": "Ezekiel 36",
+  "fullot": "Isaiah 1-3",
+  "psalms": "Psalms 53",
+  "nt": "1 Timothy 1"
 }

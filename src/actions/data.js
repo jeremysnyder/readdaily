@@ -1,14 +1,14 @@
 import moment from 'moment'
 
+export const isWeekend = day => [0, 6].includes(day)
+
 const readingDay = value => {
   const asMoment = moment(value)
-  let week = asMoment.week()
-  // In Moment, the week with Jan1 is week 1, so the last days can fall on that week
-  // Also, week should be zero based for math
-  week = (asMoment.month() === 11 && week === 1 ? 53 : week) - 1
-  return asMoment.day() === 0
+  const readingsPerWeek = 5
+  let week = asMoment.isoWeek() - 1 // Week should be zero based for math
+  return isWeekend(asMoment.day())
     ? null
-    : asMoment.dayOfYear() - week
+    : (week * readingsPerWeek) + asMoment.day()
 }
 
 export const loadDay = date => dispatch => {

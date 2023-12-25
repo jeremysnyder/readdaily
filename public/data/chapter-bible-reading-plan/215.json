@@ -1,6 +1,8 @@
 {
-  "history1": "1 Samuel 7",
-  "history2": "Ezekiel 23",
-  "wisdom": "Proverbs 8",
-  "nt": "1 Peter 2"
+  "ot1": "Judges 5",
+  "ot2": "Habakkuk 3",
+  "ot3": "Ezra 10",
+  "fullot": "Lamentations 1-2",
+  "psalms": "Psalms 99-100",
+  "nt": "John 5"
 }

@@ -1,6 +1,8 @@
 {
-  "history1": "Genesis 38",
-  "history2": "2 Chronicles 3",
-  "wisdom": "Psalm 18",
-  "nt": "Matthew 19"
+  "ot1": "Genesis 33",
+  "ot2": "1 Kings 9",
+  "ot3": "2 Chronicles 3",
+  "fullot": "Leviticus 7-9",
+  "psalms": "Psalms 38",
+  "nt": "2 Thessalonians 1"
 }

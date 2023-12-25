@@ -1,6 +1,8 @@
 {
-  "history1": "Joshua 3",
-  "history2": "Jeremiah 29",
-  "wisdom": "Proverbs 24",
-  "nt": "Colossians 1"
+  "ot1": "Deuteronomy 14",
+  "ot2": "Isaiah 27",
+  "ot3": "Ezekiel 27",
+  "fullot": "Proverbs 28-29",
+  "psalms": "Psalms 42-43",
+  "nt": "Acts 20"
 }

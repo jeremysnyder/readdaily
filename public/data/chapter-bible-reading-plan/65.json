@@ -1,6 +1,8 @@
 {
-  "history1": "Exodus 24",
-  "history2": "Hosea 9",
-  "wisdom": "Proverbs 22",
-  "nt": "1 Corinthians 1"
+  "ot1": "Exodus 15",
+  "ot2": "Proverbs 30",
+  "ot3": "Hosea 7",
+  "fullot": "Joshua 7-9",
+  "psalms": "Psalms 75-76",
+  "nt": "Ephesians 5"
 }

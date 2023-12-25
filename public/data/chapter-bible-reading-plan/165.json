@@ -1,6 +1,8 @@
 {
-  "history1": "Joshua 1",
-  "history2": "Jeremiah 27",
-  "wisdom": "Psalm 85",
-  "nt": "Matthew 7"
+  "ot1": "Deuteronomy 12",
+  "ot2": "Isaiah 25",
+  "ot3": "Ezekiel 25",
+  "fullot": "Proverbs 22-24",
+  "psalms": "Psalms 40",
+  "nt": "Acts 18"
 }

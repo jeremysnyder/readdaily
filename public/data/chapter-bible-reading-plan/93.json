@@ -1,6 +1,8 @@
 {
-  "history1": "Leviticus 16",
-  "history2": "Isaiah 23",
-  "wisdom": "Psalm 49",
-  "nt": "Luke 9"
+  "ot1": "Leviticus 3",
+  "ot2": "1 Kings 18",
+  "ot3": "Jeremiah 13",
+  "fullot": "2 Samuel 13-15",
+  "psalms": "Psalms 109",
+  "nt": "Matthew 27"
 }

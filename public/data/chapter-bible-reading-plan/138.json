@@ -1,6 +1,8 @@
 {
-  "history1": "Deuteronomy 4",
-  "history2": "2 Chronicles 36",
-  "wisdom": "Job 23",
-  "nt": "Romans 15"
+  "ot1": "Numbers 21",
+  "ot2": "Micah 5",
+  "ot3": "Lamentations 3",
+  "fullot": "Nehemiah 4-6",
+  "psalms": "Psalms 9-10",
+  "nt": "Luke 15"
 }

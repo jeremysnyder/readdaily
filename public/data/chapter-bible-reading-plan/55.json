@@ -1,6 +1,8 @@
 {
-  "history1": "Exodus 12-13",
-  "history2": "2 Chronicles 25",
-  "wisdom": "Psalm 28",
-  "nt": "Mark 1"
+  "ot1": "Exodus 5",
+  "ot2": "Proverbs 20",
+  "ot3": "2 Chronicles 25",
+  "fullot": "Deuteronomy 11-13",
+  "psalms": "Psalms 64",
+  "nt": "Philippians 4"
 }

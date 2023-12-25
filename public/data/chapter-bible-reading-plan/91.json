@@ -1,6 +1,8 @@
 {
-  "history1": "Leviticus 14",
-  "history2": "Isaiah 21",
-  "wisdom": "Psalm 47",
-  "nt": "Luke 7"
+  "ot1": "Leviticus 1",
+  "ot2": "1 Kings 16",
+  "ot3": "Jeremiah 11",
+  "fullot": "2 Samuel 7-9",
+  "psalms": "Psalms 107",
+  "nt": "Matthew 25"
 }

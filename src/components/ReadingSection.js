@@ -5,6 +5,7 @@ import CardContent from '@material-ui/core/CardContent'
 import CardActions from '@material-ui/core/CardActions'
 import Button from '@material-ui/core/Button'
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks'
+import { isWeekend } from '../actions/data'
 
 const openReading = passages => {
   const url = `http://esv.org/${passages.map(x => window.encodeURIComponent(x.reading)).join(';')}/`
@@ -16,10 +17,10 @@ function NoReading(props) {
   return (
     <Card className='reading'>
       <CardHeader title='No readings today' disableTypography={true} className='reading-header' />
-      {loadedDay && loadedDay.day() === 0 // Sunday
+      {loadedDay && isWeekend(loadedDay.day())
         ?
         <CardContent className='reading-body'>
-          Consider meditating on today's sermon text(s), or catching up on last week's readings...
+          Consider meditating on other readings, sermon texts, or catching up on last week's readings...
         </CardContent>
         : null}
     </Card>
@@ -32,7 +33,7 @@ function Reading(props) {
     <Card className='reading'>
       <CardHeader title={title} disableTypography={true} className='reading-header' />
       <CardActions className='reading-body'>
-        {reading}
+        {reading.join(", ")}
         <ReadButton reading={reading} />
       </CardActions>
     </Card>

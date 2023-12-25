@@ -1,6 +1,8 @@
 {
-  "history1": "Exodus 33-34",
-  "history2": "2 Chronicles 31",
-  "wisdom": "Psalm 37",
-  "nt": "Mark 11-12"
+  "ot1": "Exodus 23",
+  "ot2": "Ecclesiastes 7",
+  "ot3": "2 Chronicles 29",
+  "fullot": "Judges 7-9",
+  "psalms": "Psalms 86",
+  "nt": "Matthew 7"
 }

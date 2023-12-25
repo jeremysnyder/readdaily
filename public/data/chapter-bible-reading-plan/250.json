@@ -1,6 +1,8 @@
 {
-  "history1": "2 Samuel 23",
-  "history2": "Daniel 10",
-  "wisdom": "Proverbs 19",
-  "nt": "Hebrews 10"
+  "ot1": "1 Samuel 19",
+  "ot2": "Job 32",
+  "ot3": "Esther 5",
+  "fullot": "Habakkuk 1-3",
+  "psalms": "Psalms 138",
+  "nt": "Revelation 12"
 }

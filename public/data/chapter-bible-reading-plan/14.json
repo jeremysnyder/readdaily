@@ -1,6 +1,8 @@
 {
-  "history1": "Genesis 16",
-  "history2": "1 Chronicles 14",
-  "wisdom": "Psalm 8",
-  "nt": "Matthew 9"
+  "ot1": "Genesis 14",
+  "ot2": "2 Samuel 14",
+  "ot3": "1 Chronicles 14",
+  "fullot": "Genesis 40-42",
+  "psalms": "Psalms 17",
+  "nt": "Mark 14"
 }

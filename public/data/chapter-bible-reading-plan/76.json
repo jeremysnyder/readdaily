@@ -1,6 +1,8 @@
 {
-  "history1": "Exodus 37",
-  "history2": "Isaiah 2",
-  "wisdom": "Proverbs 25",
-  "nt": "1 Corinthians 6"
+  "ot1": "Exodus 26",
+  "ot2": "Ecclesiastes 10",
+  "ot3": "2 Chronicles 32",
+  "fullot": "Judges 16-18",
+  "psalms": "Psalms 89",
+  "nt": "Matthew 10"
 }

@@ -1,6 +1,8 @@
 {
-  "history1": "Genesis 49",
-  "history2": "2 Chronicles 13",
-  "wisdom": "Psalm 22",
-  "nt": "Matthew 23"
+  "ot1": "Genesis 43",
+  "ot2": "Proverbs 8",
+  "ot3": "2 Chronicles 13",
+  "fullot": "Numbers 10-12",
+  "psalms": "Psalms 50",
+  "nt": "1 Corinthians 8"
 }

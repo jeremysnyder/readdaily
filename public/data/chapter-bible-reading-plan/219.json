@@ -1,6 +1,8 @@
 {
-  "history1": "1 Samuel 11",
-  "history2": "Ezekiel 27",
-  "wisdom": "Psalm 112",
-  "nt": "Mark 7"
+  "ot1": "Judges 10",
+  "ot2": "2 Kings 25",
+  "ot3": "Nehemiah 4",
+  "fullot": "Ezekiel 7-9",
+  "psalms": "Psalms 105",
+  "nt": "John 9"
 }

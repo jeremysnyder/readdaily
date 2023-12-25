@@ -1,6 +1,8 @@
 {
-  "history1": "Deuteronomy 5",
-  "history2": "Jeremiah 1",
-  "wisdom": "Psalm 71",
-  "nt": "John 11"
+  "ot1": "Numbers 22",
+  "ot2": "Micah 6",
+  "ot3": "Lamentations 4",
+  "fullot": "Nehemiah 7-9",
+  "psalms": "Psalms 11",
+  "nt": "Luke 16"
 }

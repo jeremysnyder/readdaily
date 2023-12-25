@@ -1,31 +1,27 @@
-import React from 'react'
+import React from "react";
 
-import Paper from '@material-ui/core/Paper'
-import Typography from '@material-ui/core/Typography'
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 
 export function Info(props) {
   return (
-    <div className='page'>
+    <div className="content">
       <Paper style={{ margin: 10, marginTop: -12, padding: 15 }} elevation={3}>
         <Typography variant="h5" component="h3">
-          Read Daily Version 2020.0
+          Read Daily Version 2023.0
         </Typography>
         <Typography variant="body1" gutterBottom>
-          This plan aims to provide readers with a path
-          through the Scriptures that is systematic,
-          sustainable, and spirituality nourishing.
+          This plan provides a path through the Scriptures that is systematic
+          and sustainable.
         </Typography>
         <Typography variant="body1" gutterBottom>
-          Old Testament history and prophets can be
-          covered in one or two years.
+          The Psalms are read twice and the New Testament once in each year.
         </Typography>
         <Typography variant="body1" gutterBottom>
-          The New Testament, along with Old Testament
-          wisdom literature, is covered each year — with
-          the Four Gospels read twice and the Proverbs
-          read three times annually.
+          The Old Testament is divided into three portions, allowing it to be
+          read in 1-3 years.
         </Typography>
       </Paper>
     </div>
-  )
+  );
 }

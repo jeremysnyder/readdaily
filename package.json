@@ -1,9 +1,9 @@
 {
   "name": "readdaily",
-  "version": "1.0.1",
+  "version": "2023.0",
   "private": true,
   "license": "UNLICENSED",
-  "homepage": "https://jeremysnyder.github.io/readdaily2020/",
+  "homepage": "https://jeremysnyder.github.io/readdaily2023/",
   "dependencies": {
     "@material-ui/core": "^4.5.0",
     "@material-ui/icons": "^4.4.3",

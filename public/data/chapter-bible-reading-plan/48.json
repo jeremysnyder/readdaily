@@ -1,6 +1,8 @@
 {
-  "history1": "Exodus 4",
-  "history2": "2 Chronicles 18",
-  "wisdom": "Job 8",
-  "nt": "Acts 16"
+  "ot1": "Genesis 48",
+  "ot2": "Proverbs 13",
+  "ot3": "2 Chronicles 18",
+  "fullot": "Numbers 25-27",
+  "psalms": "Psalms 55",
+  "nt": "1 Corinthians 13"
 }

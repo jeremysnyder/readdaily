@@ -1,6 +1,8 @@
 {
-  "history1": "Deuteronomy 12",
-  "history2": "Jeremiah 7",
-  "wisdom": "Psalm 74",
-  "nt": "John 14"
+  "ot1": "Numbers 28",
+  "ot2": "Isaiah 5",
+  "ot3": "Ezekiel 5",
+  "fullot": "Job 4-6",
+  "psalms": "Psalms 18",
+  "nt": "Luke 22"
 }

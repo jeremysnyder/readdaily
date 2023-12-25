@@ -1,6 +1,8 @@
 {
-  "history1": "Exodus 3",
-  "history2": "2 Chronicles 17",
-  "wisdom": "Proverbs 16",
-  "nt": "Acts 15"
+  "ot1": "Genesis 47",
+  "ot2": "Proverbs 12",
+  "ot3": "2 Chronicles 17",
+  "fullot": "Numbers 22-24",
+  "psalms": "Psalms 54",
+  "nt": "1 Corinthians 12"
 }

@@ -1,6 +1,8 @@
 {
-  "history1": "Exodus 11",
-  "history2": "2 Chronicles 24",
-  "wisdom": "Job 9",
-  "nt": "1 Thessalonians 4-5"
+  "ot1": "Exodus 4",
+  "ot2": "Proverbs 19",
+  "ot3": "2 Chronicles 24",
+  "fullot": "Deuteronomy 8-10",
+  "psalms": "Psalms 63",
+  "nt": "Philippians 3"
 }

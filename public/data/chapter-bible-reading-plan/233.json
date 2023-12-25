@@ -1,6 +1,8 @@
 {
-  "history1": "1 Samuel 27",
-  "history2": "Ezekiel 42",
-  "wisdom": "Proverbs 14",
-  "nt": "Hebrews 2"
+  "ot1": "1 Samuel 1",
+  "ot2": "Job 15",
+  "ot3": "Zechariah 3",
+  "fullot": "Daniel 1-3",
+  "psalms": "Psalms 119",
+  "nt": "1 John 2"
 }

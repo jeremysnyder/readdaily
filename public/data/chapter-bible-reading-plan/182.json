@@ -1,6 +1,8 @@
 {
-  "history1": "Joshua 21",
-  "history2": "Jeremiah 46",
-  "wisdom": "Psalm 93",
-  "nt": "Matthew 15"
+  "ot1": "Deuteronomy 30",
+  "ot2": "Isaiah 42",
+  "ot3": "Ezekiel 42",
+  "fullot": "Isaiah 19-21",
+  "psalms": "Psalms 60-61",
+  "nt": "Titus 1"
 }

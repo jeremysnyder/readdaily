@@ -1,6 +1,8 @@
 {
-  "history1": "Exodus 29",
-  "history2": "Hosea 13",
-  "wisdom": "Psalm 36",
-  "nt": "Mark 10"
+  "ot1": "Exodus 19",
+  "ot2": "Ecclesiastes 3",
+  "ot3": "Hosea 11",
+  "fullot": "Joshua 19-21",
+  "psalms": "Psalms 80",
+  "nt": "Matthew 3"
 }

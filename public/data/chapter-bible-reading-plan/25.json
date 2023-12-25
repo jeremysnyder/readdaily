@@ -1,6 +1,8 @@
 {
-  "history1": "Genesis 28-29",
-  "history2": "1 Chronicles 25",
-  "wisdom": "Psalm 13",
-  "nt": "Matthew 14"
+  "ot1": "Genesis 25",
+  "ot2": "1 Kings 1",
+  "ot3": "1 Chronicles 25",
+  "fullot": "Exodus 23-25",
+  "psalms": "Psalms 30",
+  "nt": "Galatians 4"
 }

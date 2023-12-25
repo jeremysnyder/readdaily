@@ -1,6 +1,8 @@
 {
-  "history1": "Joshua 6",
-  "history2": "Jeremiah 32",
-  "wisdom": "Psalm 87",
-  "nt": "Matthew 9"
+  "ot1": "Deuteronomy 17",
+  "ot2": "Isaiah 30",
+  "ot3": "Ezekiel 30",
+  "fullot": "Ecclesiastes 4-6",
+  "psalms": "Psalms 46",
+  "nt": "Acts 23"
 }

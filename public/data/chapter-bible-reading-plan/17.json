@@ -1,6 +1,8 @@
 {
-  "history1": "Genesis 19",
-  "history2": "1 Chronicles 17",
-  "wisdom": "Proverbs 6",
-  "nt": "Acts 10-11"
+  "ot1": "Genesis 17",
+  "ot2": "2 Samuel 17",
+  "ot3": "1 Chronicles 17",
+  "fullot": "Genesis 49-50",
+  "psalms": "Psalms 20",
+  "nt": "James 1"
 }

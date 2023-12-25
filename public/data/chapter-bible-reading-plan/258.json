@@ -1,6 +1,8 @@
 {
-  "history1": "1 Kings 8",
-  "history2": "Ezra 6",
-  "wisdom": "Ecclesiastes 1",
-  "nt": "1 John 2"
+  "ot1": "1 Samuel 28",
+  "ot2": "Job 40",
+  "ot3": "Malachi 3",
+  "fullot": "Malachi 1-4",
+  "psalms": "Psalms 147",
+  "nt": "Revelation 20"
 }

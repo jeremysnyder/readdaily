@@ -1,6 +1,8 @@
 {
-  "history1": "Exodus 16",
-  "history2": "2 Chronicles 28",
-  "wisdom": "Proverbs 19",
-  "nt": "2 Thessalonians 1-3"
+  "ot1": "Exodus 8",
+  "ot2": "Proverbs 23",
+  "ot3": "2 Chronicles 28",
+  "fullot": "Deuteronomy 20-22",
+  "psalms": "Psalms 67",
+  "nt": "Colossians 2"
 }

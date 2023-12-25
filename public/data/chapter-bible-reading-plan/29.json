@@ -1,6 +1,8 @@
 {
-  "history1": "Genesis 33",
-  "history2": "1 Chronicles 29",
-  "wisdom": "Proverbs 10",
-  "nt": "James 3"
+  "ot1": "Genesis 29",
+  "ot2": "1 Kings 5",
+  "ot3": "1 Chronicles 29",
+  "fullot": "Exodus 35-37",
+  "psalms": "Psalms 34",
+  "nt": "1 Thessalonians 2"
 }

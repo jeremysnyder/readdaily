@@ -1,6 +1,8 @@
 {
-  "history1": "1 Kings 6",
-  "history2": "Ezra 4",
-  "wisdom": "Proverbs 21",
-  "nt": "Hebrews 13"
+  "ot1": "1 Samuel 26",
+  "ot2": "Job 38",
+  "ot3": "Malachi 1",
+  "fullot": "Zechariah 10-12",
+  "psalms": "Psalms 145",
+  "nt": "Revelation 18"
 }

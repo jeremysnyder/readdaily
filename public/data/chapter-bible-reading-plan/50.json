@@ -1,6 +1,8 @@
 {
-  "history1": "Exodus 7",
-  "history2": "2 Chronicles 20",
-  "wisdom": "Psalm 26",
-  "nt": "Matthew 27"
+  "ot1": "Genesis 50",
+  "ot2": "Proverbs 15",
+  "ot3": "2 Chronicles 20",
+  "fullot": "Numbers 31-33",
+  "psalms": "Psalms 57-58",
+  "nt": "1 Corinthians 15"
 }

@@ -1,6 +1,8 @@
 {
-  "history1": "Leviticus 10",
-  "history2": "Isaiah 15-16",
-  "wisdom": "Psalm 46",
-  "nt": "Luke 6"
+  "ot1": "Exodus 37",
+  "ot2": "1 Kings 12",
+  "ot3": "Jeremiah 7",
+  "fullot": "1 Samuel 25-27",
+  "psalms": "Psalms 103",
+  "nt": "Matthew 21"
 }

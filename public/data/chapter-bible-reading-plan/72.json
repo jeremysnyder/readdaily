@@ -1,6 +1,8 @@
 {
-  "history1": "Exodus 32",
-  "history2": "2 Chronicles 30",
-  "wisdom": "Job 12",
-  "nt": "1 Corinthians 5"
+  "ot1": "Exodus 22",
+  "ot2": "Ecclesiastes 6",
+  "ot3": "Hosea 14",
+  "fullot": "Judges 4-6",
+  "psalms": "Psalms 84-85",
+  "nt": "Matthew 6"
 }

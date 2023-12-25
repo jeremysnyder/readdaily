@@ -1,6 +1,8 @@
 {
-  "history1": "Genesis 32",
-  "history2": "1 Chronicles 28",
-  "wisdom": "Proverbs 9",
-  "nt": "James 2"
+  "ot1": "Genesis 28",
+  "ot2": "1 Kings 4",
+  "ot3": "1 Chronicles 28",
+  "fullot": "Exodus 32-34",
+  "psalms": "Psalms 33",
+  "nt": "1 Thessalonians 1"
 }

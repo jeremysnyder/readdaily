@@ -1,6 +1,8 @@
 {
-  "history1": "Exodus 23",
-  "history2": "Hosea 8",
-  "wisdom": "Proverbs 21",
-  "nt": "Acts 20"
+  "ot1": "Exodus 14",
+  "ot2": "Proverbs 29",
+  "ot3": "Hosea 6",
+  "fullot": "Joshua 4-6",
+  "psalms": "Psalms 74",
+  "nt": "Ephesians 4"
 }

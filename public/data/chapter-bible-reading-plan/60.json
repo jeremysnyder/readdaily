@@ -1,6 +1,8 @@
 {
-  "history1": "Exodus 18-19",
-  "history2": "Hosea 2",
-  "wisdom": "Job 10",
-  "nt": "Acts 19"
+  "ot1": "Exodus 10",
+  "ot2": "Proverbs 25",
+  "ot3": "Hosea 2",
+  "fullot": "Deuteronomy 26-28",
+  "psalms": "Psalms 69-70",
+  "nt": "Colossians 4"
 }

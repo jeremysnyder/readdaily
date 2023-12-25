@@ -1,6 +1,8 @@
 {
-  "history1": "Deuteronomy 28",
-  "history2": "Jeremiah 21",
-  "wisdom": "Psalm 82",
-  "nt": "Matthew 3-4"
+  "ot1": "Deuteronomy 6",
+  "ot2": "Isaiah 19",
+  "ot3": "Ezekiel 19",
+  "fullot": "Proverbs 4-6",
+  "psalms": "Psalms 34",
+  "nt": "Acts 12"
 }

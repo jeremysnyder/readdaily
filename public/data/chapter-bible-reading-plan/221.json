@@ -1,6 +1,8 @@
 {
-  "history1": "1 Samuel 13",
-  "history2": "Ezekiel 29",
-  "wisdom": "Proverbs 10",
-  "nt": "1 Peter 5"
+  "ot1": "Judges 12",
+  "ot2": "Job 3",
+  "ot3": "Nehemiah 6",
+  "fullot": "Ezekiel 13-15",
+  "psalms": "Psalms 107",
+  "nt": "John 11"
 }

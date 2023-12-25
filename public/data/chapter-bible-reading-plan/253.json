@@ -1,6 +1,8 @@
 {
-  "history1": "1 Kings 1-2",
-  "history2": "Ezra 1",
-  "wisdom": "Psalm 123",
-  "nt": "Luke 10"
+  "ot1": "1 Samuel 23",
+  "ot2": "Job 35",
+  "ot3": "Esther 8",
+  "fullot": "Zechariah 1-3",
+  "psalms": "Psalms 141-142",
+  "nt": "Revelation 15"
 }

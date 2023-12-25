@@ -1,6 +1,8 @@
 {
-  "history1": "Deuteronomy 15",
-  "history2": "Jeremiah 10",
-  "wisdom": "Proverbs 17",
-  "nt": "Acts 23"
+  "ot1": "Numbers 31",
+  "ot2": "Isaiah 8",
+  "ot3": "Ezekiel 8",
+  "fullot": "Job 13-15",
+  "psalms": "Psalms 21",
+  "nt": "Acts 1"
 }

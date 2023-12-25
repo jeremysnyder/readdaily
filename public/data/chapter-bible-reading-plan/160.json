@@ -1,6 +1,8 @@
 {
-  "history1": "Deuteronomy 29",
-  "history2": "Jeremiah 22",
-  "wisdom": "Proverbs 21",
-  "nt": "Philippians 1"
+  "ot1": "Deuteronomy 7",
+  "ot2": "Isaiah 20",
+  "ot3": "Ezekiel 20",
+  "fullot": "Proverbs 7-9",
+  "psalms": "Psalms 35",
+  "nt": "Acts 13"
 }

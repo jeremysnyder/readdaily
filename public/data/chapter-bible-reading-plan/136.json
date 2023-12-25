@@ -1,6 +1,8 @@
 {
-  "history1": "Deuteronomy 2",
-  "history2": "Habakkuk 1-3",
-  "wisdom": "Proverbs 13",
-  "nt": "Romans 13"
+  "ot1": "Numbers 19",
+  "ot2": "Micah 3",
+  "ot3": "Lamentations 1",
+  "fullot": "Ezra 8-10",
+  "psalms": "Psalms 7",
+  "nt": "Luke 13"
 }
