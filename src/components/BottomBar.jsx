@@ -6,11 +6,11 @@ import Select from '@mui/material/Select'
 export function BottomBar(props) {
   const { plan, updatePlanTimeframe } = props
   const planTimeframeOptions = {
-    'family': 'Family Readings',
     '1': 'All In 1 Year',
     '3:1': '3yr Plan - Year 1',
     '3:2': '3yr Plan - Year 2',
     '3:3': '3yr Plan - Year 3',
+    'family': 'Family Readings',
   }
 
   return (
