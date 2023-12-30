@@ -1,45 +1,39 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import AppBar from "@mui/material/AppBar";
-import moment from "moment";
+import AppBar from "@mui/material/AppBar"
+import moment from "moment"
+import React, { useState } from "react"
+import { connect } from "react-redux"
 
-import { loadDay, loadPlanType } from "./actions/data";
-import { TitleBar } from "./components/TitleBar";
-import { Readings } from "./components/Readings";
-import { Info } from "./components/Info";
-import { BottomBar } from "./components/BottomBar";
+import { loadDay, loadPlanType } from "./actions/data"
+import { BottomBar } from "./components/BottomBar"
+import { Info } from "./components/Info"
+import { Readings } from "./components/Readings"
+import { TitleBar } from "./components/TitleBar"
 
-import { ThemeProvider, StyledEngineProvider, createTheme } from "@mui/material/styles";
+import {
+  StyledEngineProvider,
+  ThemeProvider,
+  createTheme,
+} from "@mui/material/styles"
 
-// import makeStyles from '@mui/styles/makeStyles';
+import "./App.css"
 
-const theme = createTheme();
-
-// const useStyles = makeStyles((theme) => {
-//   root: {
-//     // some CSS that accesses the theme
-//   }
-// });
-
-import "./App.css";
+const theme = createTheme()
 
 function App(props) {
-  // const classes = useStyles();
-
-  const { data, loadDay, loadPlanType, planTimeframe } = props;
-  const [dayChanged, setDayChanged] = useState(true);
-  const [showConfig, setShowConfig] = useState(false);
-  const [loadedDay, setLoadedDay] = useState(moment());
+  const { data, loadDay, loadPlanType, planTimeframe } = props
+  const [dayChanged, setDayChanged] = useState(true)
+  const [showConfig, setShowConfig] = useState(false)
+  const [loadedDay, setLoadedDay] = useState(moment())
   if (dayChanged) {
-    loadDay(loadedDay);
-    loadPlanType(localStorage.getItem("readDaily-planType") || "1");
-    setDayChanged(false);
+    loadDay(loadedDay)
+    loadPlanType(localStorage.getItem("readDaily-planType") || "1")
+    setDayChanged(false)
   }
 
   const changeDay = (day) => {
-    setDayChanged(true);
-    setLoadedDay(day);
-  };
+    setDayChanged(true)
+    setLoadedDay(day)
+  }
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
@@ -67,17 +61,17 @@ function App(props) {
         </div>
       </ThemeProvider>
     </StyledEngineProvider>
-  );
+  )
 }
 
 const mapStateToProps = (state) => ({
   data: state.data.readingPlan || {},
   planTimeframe: state.data.readingPlanType || "1",
-});
+})
 
 const mapDispatchToProps = (dispatch) => ({
   loadDay: (date) => dispatch(loadDay(date)),
   loadPlanType: (planType) => dispatch(loadPlanType(planType)),
-});
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App)

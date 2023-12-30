@@ -1,28 +1,34 @@
-import React from 'react'
-import Card from '@mui/material/Card'
-import CardHeader from '@mui/material/CardHeader'
-import CardContent from '@mui/material/CardContent'
-import CardActions from '@mui/material/CardActions'
-import Button from '@mui/material/Button'
-import LibraryBooksIcon from '@mui/icons-material/LibraryBooks'
-import { isWeekend } from '../actions/data'
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks"
+import Button from "@mui/material/Button"
+import Card from "@mui/material/Card"
+import CardActions from "@mui/material/CardActions"
+import CardContent from "@mui/material/CardContent"
+import CardHeader from "@mui/material/CardHeader"
+import React from "react"
+import { isWeekend } from "../actions/data"
 
-const openReading = passages => {
-  const url = `http://esv.org/${passages.map(x => window.encodeURIComponent(x.reading)).join(';')}/`
-  window.open(url, '_blank')
+const openReading = (passages) => {
+  const url = `http://esv.org/${passages
+    .map((x) => window.encodeURIComponent(x.reading))
+    .join(";")}/`
+  window.open(url, "_blank")
 }
 
 function NoReading(props) {
   const { loadedDay } = props
   return (
-    <Card className='reading'>
-      <CardHeader title='No readings today' disableTypography={true} className='reading-header' />
-      {loadedDay && isWeekend(loadedDay.day())
-        ?
-        <CardContent className='reading-body'>
-          Consider meditating on other readings, sermon texts, or catching up on last week's readings...
+    <Card className="reading">
+      <CardHeader
+        title="No readings today"
+        disableTypography={true}
+        className="reading-header"
+      />
+      {loadedDay && isWeekend(loadedDay.day()) ? (
+        <CardContent className="reading-body">
+          Consider meditating on other readings, sermon texts, or catching up on
+          last week's readings...
         </CardContent>
-        : null}
+      ) : null}
     </Card>
   )
 }
@@ -30,9 +36,13 @@ function NoReading(props) {
 function Reading(props) {
   const { title, reading } = props
   return (
-    <Card className='reading'>
-      <CardHeader title={title} disableTypography={true} className='reading-header' />
-      <CardActions className='reading-body'>
+    <Card className="reading">
+      <CardHeader
+        title={title}
+        disableTypography={true}
+        className="reading-header"
+      />
+      <CardActions className="reading-body">
         {reading.join(", ")}
         <ReadButton reading={reading} />
       </CardActions>
@@ -46,34 +56,39 @@ function ReadButton(props) {
     <Button
       variant="contained"
       startIcon={<LibraryBooksIcon />}
-      style={{ marginLeft: 'auto' }}
-      onClick={openReading.bind(null, [{ reading }])}>
+      style={{ marginLeft: "auto" }}
+      onClick={openReading.bind(null, [{ reading }])}
+    >
       Read
     </Button>
-  );
+  )
 }
 
 function ReadAllSection(props) {
   const { readings } = props
   return (
-    <div style={{ textAlign: 'center', marginTop: 20 }}>
+    <div style={{ textAlign: "center", marginTop: 20 }}>
       <Button
         variant="contained"
         startIcon={<LibraryBooksIcon />}
-        onClick={openReading.bind(null, readings)}>
+        onClick={openReading.bind(null, readings)}
+      >
         Read All Passages
-    </Button>
+      </Button>
     </div>
-  );
+  )
 }
 
 export function ReadingList(props) {
   const { readings, loadedDay } = props
-  return readings && readings.length
-    ? <div>
-      {readings.map(x => <Reading key={x.title} title={x.title} reading={x.reading} />)}
+  return readings && readings.length ? (
+    <div>
+      {readings.map((x) => (
+        <Reading key={x.title} title={x.title} reading={x.reading} />
+      ))}
       <ReadAllSection readings={readings} />
     </div>
-    : <NoReading loadedDay={loadedDay} />
+  ) : (
+    <NoReading loadedDay={loadedDay} />
+  )
 }
-
