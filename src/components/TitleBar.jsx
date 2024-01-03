@@ -1,15 +1,15 @@
-import React from "react";
-import Typography from "@mui/material/Typography";
-import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import ArrowBack from "@mui/icons-material/ArrowBack";
-import ArrowForward from "@mui/icons-material/ArrowForward";
-import Close from "@mui/icons-material/Close";
-import Info from "@mui/icons-material/Info";
+import ArrowBack from "@mui/icons-material/ArrowBack"
+import ArrowForward from "@mui/icons-material/ArrowForward"
+import Close from "@mui/icons-material/Close"
+import Info from "@mui/icons-material/Info"
+import Button from "@mui/material/Button"
+import IconButton from "@mui/material/IconButton"
+import Toolbar from "@mui/material/Toolbar"
+import Typography from "@mui/material/Typography"
+import React from "react"
 
 function ReadingTitle(props) {
-  const { loadedDay, onInfoClick } = props;
+  const { loadedDay, onInfoClick } = props
   return (
     <div className="title">
       <Typography variant="h5">{loadedDay.format("ddd, MMMM D")}</Typography>
@@ -25,7 +25,7 @@ function ReadingTitle(props) {
         </Button>
       </Typography>
     </div>
-  );
+  )
 }
 
 function InfoTitle(props) {
@@ -33,11 +33,11 @@ function InfoTitle(props) {
     <div className="title">
       <Typography variant="h5">About Read Daily</Typography>
     </div>
-  );
+  )
 }
 
 export function ReadingTitleBar(props) {
-  const { loadedDay, changeDay } = props;
+  const { loadedDay, changeDay } = props
   return (
     <Toolbar>
       <IconButton
@@ -45,7 +45,8 @@ export function ReadingTitleBar(props) {
         color="inherit"
         aria-label="menu"
         onClick={() => changeDay(loadedDay.subtract(1, "days"))}
-        size="large">
+        size="large"
+      >
         <ArrowBack />
       </IconButton>
       <ReadingTitle {...props} />
@@ -54,15 +55,16 @@ export function ReadingTitleBar(props) {
         color="inherit"
         aria-label="menu"
         onClick={() => changeDay(loadedDay.add(1, "days"))}
-        size="large">
+        size="large"
+      >
         <ArrowForward />
       </IconButton>
     </Toolbar>
-  );
+  )
 }
 
 export function InfoTitleBar(props) {
-  const { onInfoClose } = props;
+  const { onInfoClose } = props
   return (
     <Toolbar>
       <IconButton edge="start" color="inherit" aria-label="menu" size="large">
@@ -74,11 +76,12 @@ export function InfoTitleBar(props) {
         color="inherit"
         aria-label="menu"
         onClick={onInfoClose}
-        size="large">
+        size="large"
+      >
         <Close />
       </IconButton>
     </Toolbar>
-  );
+  )
 }
 
 export function TitleBar(props) {
@@ -86,5 +89,5 @@ export function TitleBar(props) {
     <InfoTitleBar {...props} />
   ) : (
     <ReadingTitleBar {...props} />
-  );
+  )
 }
