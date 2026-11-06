@@ -68,3 +68,4 @@ jobs:
           publish_dir: ./dist
           destination_dir: ${{ steps.meta.outputs.tag }}
           keep_files: true
+          allow_empty_commit: true
