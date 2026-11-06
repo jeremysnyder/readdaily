@@ -1,5 +1,6 @@
 import React from "react"
 
+import { useReading } from "../context/ReadingContext"
 import { ReadingList } from "./ReadingSection"
 
 const loadReadings = (readingFormat, readingData) => {
@@ -41,12 +42,15 @@ const loadReadings = (readingFormat, readingData) => {
   return readings
 }
 
-export function Readings({ data, loadedDay, planTimeframe }) {
+export function Readings() {
+  const { data, planTimeframe } = useReading()
   const readings = loadReadings(planTimeframe, data)
 
   return (
     <div className="content">
-      <ReadingList readings={readings} loadedDay={loadedDay} />
+      <div className="content-inner">
+        <ReadingList readings={readings} />
+      </div>
     </div>
   )
 }

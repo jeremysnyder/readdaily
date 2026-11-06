@@ -1,5 +1,12 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
+  height: 100dvh;
 }
 
 body {
@@ -9,12 +16,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #1976d2;
+  background-color: var(--accent-color, #37474f);
   height: 100%;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 #root {
   height: 100%;
+  height: 100dvh;
 }
 
 code {
