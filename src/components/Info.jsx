@@ -168,9 +168,9 @@ export function Info() {
               ESV.org
             </Link>
             . The ESV® Bible (The Holy Bible, English Standard Version®), © 2001
-            by Crossway, a publishing ministry of Good News Publishers. ESV®
-            Text Edition: 2016. All rights reserved. Read Daily is an
-            independent tool and is not affiliated with or endorsed by Crossway.
+            by Crossway, a publishing ministry of Good News Publishers. ESV Text
+            Edition: 2025. All rights reserved. Read Daily is an independent
+            tool and is not affiliated with or endorsed by Crossway.
           </Typography>
         </Paper>
       </div>
