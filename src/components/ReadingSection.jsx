@@ -4,18 +4,19 @@ import Card from "@mui/material/Card"
 import CardActions from "@mui/material/CardActions"
 import CardContent from "@mui/material/CardContent"
 import CardHeader from "@mui/material/CardHeader"
+import CircularProgress from "@mui/material/CircularProgress"
 import React from "react"
-import { isWeekend } from "../actions/data"
+import { isWeekend, useReading } from "../context/ReadingContext"
 
 const openReading = (passages) => {
-  const url = `http://esv.org/${passages
+  const url = `https://www.esv.org/${passages
     .map((x) => window.encodeURIComponent(x.reading))
     .join(";")}/`
   window.open(url, "_blank")
 }
 
-function NoReading(props) {
-  const { loadedDay } = props
+function NoReading() {
+  const { loadedDay } = useReading()
   return (
     <Card className="reading">
       <CardHeader
@@ -23,7 +24,7 @@ function NoReading(props) {
         disableTypography={true}
         className="reading-header"
       />
-      {loadedDay && isWeekend(loadedDay.day()) ? (
+      {loadedDay && isWeekend(loadedDay) ? (
         <CardContent className="reading-body">
           Consider meditating on other readings, sermon texts, or catching up on
           last week's readings...
@@ -33,8 +34,7 @@ function NoReading(props) {
   )
 }
 
-function Reading(props) {
-  const { title, reading } = props
+function Reading({ title, reading }) {
   return (
     <Card className="reading">
       <CardHeader
@@ -43,45 +43,60 @@ function Reading(props) {
         className="reading-header"
       />
       <CardActions className="reading-body">
-        {reading.join(", ")}
+        <span className="reading-passage">{reading.join(", ")}</span>
         <ReadButton reading={reading} />
       </CardActions>
     </Card>
   )
 }
 
-function ReadButton(props) {
-  const { reading } = props
+function ReadButton({ reading }) {
   return (
     <Button
       variant="contained"
       startIcon={<LibraryBooksIcon />}
       style={{ marginLeft: "auto" }}
-      onClick={openReading.bind(null, [{ reading }])}
+      onClick={() => openReading([{ reading }])}
     >
       Read
     </Button>
   )
 }
 
-function ReadAllSection(props) {
-  const { readings } = props
+function ReadAllSection({ readings }) {
   return (
-    <div style={{ textAlign: "center", marginTop: 20 }}>
+    <div className="reading-actions-row">
       <Button
         variant="contained"
         startIcon={<LibraryBooksIcon />}
-        onClick={openReading.bind(null, readings)}
+        onClick={() => openReading(readings)}
+        className="read-all-button"
       >
-        Read All Passages
+        Read All
       </Button>
     </div>
   )
 }
 
-export function ReadingList(props) {
-  const { readings, loadedDay } = props
-  return readings && readings.length ? (
+export function ReadingList({ readings }) {
+  const { loading } = useReading()
+
+  if (loading || !readings) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: 40,
+        }}
+      >
+        <CircularProgress size={48} />
+      </div>
+    )
+  }
+
+  return readings.length ? (
     <div>
       {readings.map((x) => (
         <Reading key={x.title} title={x.title} reading={x.reading} />
@@ -89,6 +104,6 @@ export function ReadingList(props) {
       <ReadAllSection readings={readings} />
     </div>
   ) : (
-    <NoReading loadedDay={loadedDay} />
+    <NoReading />
   )
 }

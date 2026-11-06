@@ -1,13 +1,12 @@
 import React from "react"
-import ReactDOM from "react-dom"
-import { Provider } from "react-redux"
+import { createRoot } from "react-dom/client"
 import App from "./App"
+import { ReadingProvider } from "./context/ReadingContext"
 import "./index.css"
-import configureStore from "./store"
 
-ReactDOM.render(
-  <Provider store={configureStore()}>
+const root = createRoot(document.getElementById("root"))
+root.render(
+  <ReadingProvider>
     <App />
-  </Provider>,
-  document.getElementById("root")
+  </ReadingProvider>
 )

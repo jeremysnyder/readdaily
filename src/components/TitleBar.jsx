@@ -2,59 +2,52 @@ import ArrowBack from "@mui/icons-material/ArrowBack"
 import ArrowForward from "@mui/icons-material/ArrowForward"
 import Close from "@mui/icons-material/Close"
 import Info from "@mui/icons-material/Info"
-import Button from "@mui/material/Button"
 import IconButton from "@mui/material/IconButton"
 import Toolbar from "@mui/material/Toolbar"
 import Typography from "@mui/material/Typography"
 import React from "react"
+import { formatTitleDate, useReading } from "../context/ReadingContext"
 
-function ReadingTitle(props) {
-  const { loadedDay, onInfoClick } = props
+function ReadingTitle() {
+  const { loadedDay } = useReading()
   return (
     <div className="title">
-      <Typography variant="h5">{loadedDay.format("ddd, MMMM D")}</Typography>
-      <Typography variant="subtitle2">
-        <Button
-          variant="contained"
-          color="primary"
-          size="small"
-          endIcon={<Info />}
-          onClick={onInfoClick}
-        >
-          Read Daily
-        </Button>
+      <Typography variant="h5" className="title-date">
+        {formatTitleDate(loadedDay)}
       </Typography>
     </div>
   )
 }
 
-function InfoTitle(props) {
+function InfoTitle() {
   return (
     <div className="title">
-      <Typography variant="h5">About Read Daily</Typography>
+      <Typography variant="h5" className="title-date">
+        About Read Daily
+      </Typography>
     </div>
   )
 }
 
-export function ReadingTitleBar(props) {
-  const { loadedDay, changeDay } = props
+export function ReadingTitleBar() {
+  const { prevDay, nextDay } = useReading()
   return (
     <Toolbar>
       <IconButton
         edge="start"
         color="inherit"
-        aria-label="menu"
-        onClick={() => changeDay(loadedDay.subtract(1, "days"))}
+        aria-label="previous day"
+        onClick={prevDay}
         size="large"
       >
         <ArrowBack />
       </IconButton>
-      <ReadingTitle {...props} />
+      <ReadingTitle />
       <IconButton
         edge="end"
         color="inherit"
-        aria-label="menu"
-        onClick={() => changeDay(loadedDay.add(1, "days"))}
+        aria-label="next day"
+        onClick={nextDay}
         size="large"
       >
         <ArrowForward />
@@ -63,19 +56,19 @@ export function ReadingTitleBar(props) {
   )
 }
 
-export function InfoTitleBar(props) {
-  const { onInfoClose } = props
+export function InfoTitleBar() {
+  const { setShowConfig } = useReading()
   return (
     <Toolbar>
-      <IconButton edge="start" color="inherit" aria-label="menu" size="large">
+      <IconButton edge="start" color="inherit" aria-label="info" size="large">
         <Info />
       </IconButton>
       <InfoTitle />
       <IconButton
         edge="end"
         color="inherit"
-        aria-label="menu"
-        onClick={onInfoClose}
+        aria-label="close"
+        onClick={() => setShowConfig(false)}
         size="large"
       >
         <Close />
@@ -84,10 +77,7 @@ export function InfoTitleBar(props) {
   )
 }
 
-export function TitleBar(props) {
-  return props.showConfig ? (
-    <InfoTitleBar {...props} />
-  ) : (
-    <ReadingTitleBar {...props} />
-  )
+export function TitleBar() {
+  const { showConfig } = useReading()
+  return showConfig ? <InfoTitleBar /> : <ReadingTitleBar />
 }
