@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#455a64" />
+      <stop offset="100%" stop-color="#263238" />
+    </linearGradient>
+    <linearGradient id="pageLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#faf9f6" />
+      <stop offset="88%" stop-color="#f4f1ea" />
+      <stop offset="100%" stop-color="#dfd9ce" />
+    </linearGradient>
+    <linearGradient id="pageRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dfd9ce" />
+      <stop offset="12%" stop-color="#f4f1ea" />
+      <stop offset="100%" stop-color="#faf9f6" />
+    </linearGradient>
+    <filter id="bookShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Rounded Squircle Background -->
+  <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#bgGrad)" />
+
+  <!-- Book Group with Drop Shadow -->
+  <g filter="url(#bookShadow)">
+    <!-- Outer Book Cover -->
+    <path
+      d="M 68 136
+         C 128 108, 198 112, 256 140
+         C 314 112, 384 108, 444 136
+         L 444 388
+         C 384 360, 314 364, 256 392
+         C 198 364, 128 360, 68 388
+         Z"
+      fill="#1c262b"
+      stroke="#cfd8dc"
+      stroke-width="4"
+      stroke-opacity="0.2"
+    />
+
+    <!-- Left Page -->
+    <path
+      d="M 84 126
+         C 140 98, 202 104, 254 134
+         L 254 374
+         C 202 344, 140 338, 84 366
+         Z"
+      fill="url(#pageLeft)"
+    />
+
+    <!-- Right Page -->
+    <path
+      d="M 258 134
+         C 310 104, 372 98, 428 126
+         L 428 366
+         C 372 338, 310 344, 258 374
+         Z"
+      fill="url(#pageRight)"
+    />
+
+    <!-- Center Spine Crease -->
+    <line x1="256" y1="133" x2="256" y2="375" stroke="#b8b0a2" stroke-width="3" />
+
+    <!-- Crimson Ribbon Bookmark -->
+    <path
+      d="M 244 366 L 268 366 L 268 432 L 256 418 L 244 432 Z"
+      fill="#8b2630"
+    />
+
+    <!-- Typography: 'r' on left page, 'd' on right page -->
+    <text
+      x="169"
+      y="278"
+      text-anchor="middle"
+      font-family="Georgia, 'Times New Roman', serif"
+      font-weight="bold"
+      font-size="148"
+      fill="#263238"
+    >r</text>
+    <text
+      x="343"
+      y="278"
+      text-anchor="middle"
+      font-family="Georgia, 'Times New Roman', serif"
+      font-weight="bold"
+      font-size="148"
+      fill="#263238"
+    >d</text>
+  </g>
+</svg>
+
