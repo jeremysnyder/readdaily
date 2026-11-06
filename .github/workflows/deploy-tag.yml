@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "Tag/subfolder name to deploy under (e.g., 2026)"
+        description: "Tag name to checkout and deploy under (e.g., 2026)"
         required: true
         default: "2026"
 
@@ -22,18 +22,24 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Determine target tag name
         id: meta
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_TAG: ${{ github.event.inputs.tag }}
+          REF_NAME: ${{ github.ref_name }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            TAG_NAME="${{ github.event.inputs.tag }}"
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            TAG_NAME="$INPUT_TAG"
           else
-            TAG_NAME="${GITHUB_REF_NAME}"
+            TAG_NAME="$REF_NAME"
           fi
           echo "tag=${TAG_NAME}" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout repository at tag
+        uses: actions/checkout@v4
+        with:
+          ref: refs/tags/${{ steps.meta.outputs.tag }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -49,10 +55,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build static site for /readdaily/${{ steps.meta.outputs.tag }}/
-        run: pnpm run build --base=/readdaily/${{ steps.meta.outputs.tag }}/
+      - name: Build static site
+        env:
+          TARGET_TAG: ${{ steps.meta.outputs.tag }}
+        run: pnpm run build --base="/readdaily/${TARGET_TAG}/"
 
-      - name: Deploy to gh-pages branch under ${{ steps.meta.outputs.tag }}/
+      - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -60,4 +68,3 @@ jobs:
           publish_dir: ./dist
           destination_dir: ${{ steps.meta.outputs.tag }}
           keep_files: true
-

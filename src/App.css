@@ -22,9 +22,12 @@
 
 .app-header {
   flex-shrink: 0;
+  position: relative;
+  z-index: 2;
   padding-top: env(safe-area-inset-top, 0px);
   padding-left: env(safe-area-inset-left, 0px);
   padding-right: env(safe-area-inset-right, 0px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.28) !important;
 }
 
 .title {
@@ -99,14 +102,15 @@
 
 .bottom-bar {
   flex-shrink: 0;
+  position: relative;
+  z-index: 2;
   width: 100%;
   background-color: var(--bg-surface-bar);
   color: var(--text-surface-bar);
   padding-left: calc(14px + env(safe-area-inset-left, 0px));
   padding-right: calc(14px + env(safe-area-inset-right, 0px));
   padding-bottom: env(safe-area-inset-bottom, 0px);
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
   transition: background-color 0.2s ease;
 }
 

@@ -19,33 +19,7 @@ export function Info() {
   return (
     <div className="content">
       <div className="content-inner">
-        <Paper style={{ margin: 10, padding: 15 }} elevation={3}>
-          <Typography variant="h5" component="h3" gutterBottom>
-            Read Daily Version 2026.0
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            This plan provides a path through the Scriptures that is systematic
-            and sustainable.
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            The Psalms are read twice and the New Testament once in each year.
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            The Old Testament is divided into three portions, allowing it to be
-            read in 1-3 years.
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            <b>
-              <i>The Family Reading Plan:</i>
-            </b>
-            <br />
-            An overview of the Bible in a year, with selections from OT
-            narratives, psalms, prophecy, then portions of the Gospels, Acts, a
-            few epistles, and selections from Revelation. Each day has a single
-            chapter that a family could read together. Select the Family
-            Readings option from the selections at the bottom of your screen.
-          </Typography>
-          <Divider style={{ margin: "12px 0" }} />
+        <Paper style={{ margin: 10, padding: 16 }} elevation={3}>
           <div
             style={{
               display: "flex",
@@ -127,8 +101,64 @@ export function Info() {
               })}
             </div>
           </div>
-          <Divider style={{ margin: "12px 0" }} />
-          <Typography variant="body2" color="text.secondary">
+
+          <Divider style={{ margin: "14px 0" }} />
+
+          <div
+            style={{
+              display: "flex",
+              alignItems: "baseline",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              gap: 8,
+              marginBottom: 6,
+            }}
+          >
+            <Typography variant="h6" component="h3" fontWeight="bold">
+              Read Daily
+            </Typography>
+            <Typography variant="caption" color="text.secondary">
+              Version 2026.0
+            </Typography>
+          </div>
+
+          <Typography variant="body1" paragraph style={{ marginBottom: 12 }}>
+            Read Daily provides a systematic and sustainable path through the
+            Scriptures, with weekday readings that leave weekends free for
+            catching up, sermon reflection, or deeper study. Choose a reading
+            plan from the selector at the bottom of your screen:
+          </Typography>
+
+          <Typography
+            variant="subtitle1"
+            fontWeight="bold"
+            style={{ marginBottom: 2 }}
+          >
+            1-Year & 3-Year Plans
+          </Typography>
+          <Typography variant="body2" paragraph style={{ marginBottom: 12 }}>
+            Read the Psalms twice and the New Testament once each year. The Old
+            Testament is divided into three tracks—read all three together to
+            complete the entire Bible in a single year, or follow one track per
+            year to read through the Old Testament over three years.
+          </Typography>
+
+          <Typography
+            variant="subtitle1"
+            fontWeight="bold"
+            style={{ marginBottom: 2 }}
+          >
+            Family Readings
+          </Typography>
+          <Typography variant="body2" paragraph style={{ marginBottom: 4 }}>
+            A single chapter each weekday offering a guided overview of the
+            Bible in a year—moving through Old Testament narratives, Psalms,
+            and the Prophets into the Gospels, Acts, Epistles, and Revelation.
+          </Typography>
+
+          <Divider style={{ margin: "14px 0" }} />
+
+          <Typography variant="caption" color="text.secondary" component="p">
             Scripture reading links open{" "}
             <Link
               href="https://www.esv.org"
