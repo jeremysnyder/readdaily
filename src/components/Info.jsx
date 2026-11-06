@@ -1,17 +1,20 @@
+import CheckIcon from "@mui/icons-material/Check"
 import DarkModeIcon from "@mui/icons-material/DarkMode"
 import LightModeIcon from "@mui/icons-material/LightMode"
 import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness"
 import Divider from "@mui/material/Divider"
+import IconButton from "@mui/material/IconButton"
 import Link from "@mui/material/Link"
 import Paper from "@mui/material/Paper"
 import ToggleButton from "@mui/material/ToggleButton"
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup"
 import Typography from "@mui/material/Typography"
 import React from "react"
-import { useReading } from "../context/ReadingContext"
+import { ACCENT_COLORS, useReading } from "../context/ReadingContext"
 
 export function Info() {
-  const { themeMode, updateThemeMode } = useReading()
+  const { themeMode, updateThemeMode, accentColor, updateAccentColor } =
+    useReading()
 
   return (
     <div className="content">
@@ -81,6 +84,48 @@ export function Info() {
                 Dark
               </ToggleButton>
             </ToggleButtonGroup>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              gap: 8,
+              marginTop: 10,
+            }}
+          >
+            <Typography variant="subtitle1" fontWeight="bold">
+              Accent Color
+            </Typography>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              {Object.entries(ACCENT_COLORS).map(([key, cfg]) => {
+                const selected = accentColor === key
+                return (
+                  <IconButton
+                    key={key}
+                    aria-label={cfg.label}
+                    onClick={() => updateAccentColor(key)}
+                    style={{
+                      width: 32,
+                      height: 32,
+                      padding: 0,
+                      borderRadius: "50%",
+                      backgroundColor: cfg.main,
+                      color: "#ffffff",
+                      border: selected
+                        ? "2px solid currentColor"
+                        : "2px solid transparent",
+                      boxShadow: selected
+                        ? `0 0 0 2px ${cfg.main}`
+                        : "0 1px 3px rgba(0, 0, 0, 0.3)",
+                    }}
+                  >
+                    {selected ? <CheckIcon fontSize="small" /> : null}
+                  </IconButton>
+                )
+              })}
+            </div>
           </div>
           <Divider style={{ margin: "12px 0" }} />
           <Typography variant="body2" color="text.secondary">

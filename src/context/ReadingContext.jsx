@@ -43,6 +43,37 @@ const readingDay = (date) => {
   return week * readingsPerWeek + date.getDay()
 }
 
+export const ACCENT_COLORS = {
+  gray: {
+    label: "Dark Gray",
+    main: "#37474f",
+    light: "#62727b",
+    dark: "#102027",
+    contrastText: "#ffffff",
+  },
+  blue: {
+    label: "Blue",
+    main: "#1976d2",
+    light: "#42a5f5",
+    dark: "#1565c0",
+    contrastText: "#ffffff",
+  },
+  rust: {
+    label: "Rust",
+    main: "#a0522d",
+    light: "#c17953",
+    dark: "#7c3b1b",
+    contrastText: "#ffffff",
+  },
+  maroon: {
+    label: "Maroon",
+    main: "#7b1e26",
+    light: "#a3464c",
+    dark: "#530b12",
+    contrastText: "#ffffff",
+  },
+}
+
 export const ReadingContext = createContext()
 
 export function ReadingProvider({ children }) {
@@ -55,6 +86,10 @@ export function ReadingProvider({ children }) {
   const [themeMode, setThemeMode] = useState(
     () => localStorage.getItem("readDaily-themeMode") || "system"
   )
+  const [accentColor, setAccentColor] = useState(() => {
+    const saved = localStorage.getItem("readDaily-accentColor")
+    return saved && ACCENT_COLORS[saved] ? saved : "gray"
+  })
   const [systemPrefersDark, setSystemPrefersDark] = useState(
     () =>
       typeof window !== "undefined" &&
@@ -74,6 +109,15 @@ export function ReadingProvider({ children }) {
   useEffect(() => {
     document.documentElement.dataset.theme = resolvedTheme
   }, [resolvedTheme])
+
+  useEffect(() => {
+    const palette = ACCENT_COLORS[accentColor] || ACCENT_COLORS.gray
+    document.documentElement.style.setProperty("--accent-color", palette.main)
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute("content", palette.main)
+    }
+  }, [accentColor])
 
   const data = useMemo(() => {
     const day = readingDay(loadedDay)
@@ -103,6 +147,13 @@ export function ReadingProvider({ children }) {
     setThemeMode(mode)
   }, [])
 
+  const updateAccentColor = useCallback((colorKey) => {
+    if (ACCENT_COLORS[colorKey]) {
+      localStorage.setItem("readDaily-accentColor", colorKey)
+      setAccentColor(colorKey)
+    }
+  }, [])
+
   const value = useMemo(
     () => ({
       data,
@@ -119,6 +170,8 @@ export function ReadingProvider({ children }) {
       themeMode,
       resolvedTheme,
       updateThemeMode,
+      accentColor,
+      updateAccentColor,
     }),
     [
       data,
@@ -133,6 +186,8 @@ export function ReadingProvider({ children }) {
       themeMode,
       resolvedTheme,
       updateThemeMode,
+      accentColor,
+      updateAccentColor,
     ]
   )
 

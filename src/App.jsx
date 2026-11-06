@@ -11,37 +11,36 @@ import { BottomBar } from "./components/BottomBar"
 import { Info } from "./components/Info"
 import { Readings } from "./components/Readings"
 import { TitleBar } from "./components/TitleBar"
-import { useReading } from "./context/ReadingContext"
+import { ACCENT_COLORS, useReading } from "./context/ReadingContext"
 
 import "./App.css"
 
 export default function App() {
-  const { showConfig, resolvedTheme } = useReading()
+  const { showConfig, resolvedTheme, accentColor } = useReading()
 
-  const theme = useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: resolvedTheme,
-          primary: {
-            main: "#1976d2",
-            light: "#42a5f5",
-            dark: "#1565c0",
-            contrastText: "#ffffff",
-          },
+  const theme = useMemo(() => {
+    const primary = ACCENT_COLORS[accentColor] || ACCENT_COLORS.gray
+    return createTheme({
+      palette: {
+        mode: resolvedTheme,
+        primary: {
+          main: primary.main,
+          light: primary.light,
+          dark: primary.dark,
+          contrastText: primary.contrastText,
         },
-        components: {
-          MuiAppBar: {
-            styleOverrides: {
-              root: {
-                backgroundImage: "none",
-              },
+      },
+      components: {
+        MuiAppBar: {
+          styleOverrides: {
+            root: {
+              backgroundImage: "none",
             },
           },
         },
-      }),
-    [resolvedTheme]
-  )
+      },
+    })
+  }, [resolvedTheme, accentColor])
 
   return (
     <StyledEngineProvider injectFirst>
