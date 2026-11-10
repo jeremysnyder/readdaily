@@ -1,10 +1,10 @@
 {
   "name": "readdaily",
-  "version": "2026.0",
+  "version": "2027.0",
   "private": true,
   "type": "module",
   "license": "UNLICENSED",
-  "homepage": "https://jeremysnyder.github.io/readdaily/2026/",
+  "homepage": "https://jeremysnyder.github.io/readdaily/2027/",
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

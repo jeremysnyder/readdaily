@@ -82,7 +82,7 @@ export function Info() {
 
           <div className="info-header-row">
             <h3 className="info-heading">Read Daily</h3>
-            <span className="info-caption">Version 2026.0</span>
+            <span className="info-caption">Version 2027.0</span>
           </div>
 
           <p className="info-body1">
