@@ -1,55 +1,88 @@
-import React from "react"
+import { isWeekend, useReading } from "../context/ReadingContext"
+import { LibraryBooksIcon } from "./icons"
 
-import { useReading } from "../context/ReadingContext"
-import { ReadingList } from "./ReadingSection"
+const OT_KEY_BY_PLAN = {
+  1: "fullot",
+  "3:1": "ot1",
+  "3:2": "ot2",
+  "3:3": "ot3",
+}
 
 const loadReadings = (readingFormat, readingData) => {
-  if (!readingData) return null
-  const toReading = (title, reading) => ({ title, reading })
-  const readings = []
-  let includesPsalmsAndNt = true
-  switch (readingFormat) {
-    case "family":
-      includesPsalmsAndNt = false
-      if (readingData.family)
-        readings.push(toReading("Daily Reading", [readingData.family]))
-      break
-    case "1":
-      if (readingData.fullot)
-        readings.push(toReading("Old Testament", [readingData.fullot]))
-      break
-    case "3:1":
-      if (readingData.ot1)
-        readings.push(toReading("Old Testament", [readingData.ot1]))
-      break
-    case "3:2":
-      if (readingData.ot2)
-        readings.push(toReading("Old Testament", [readingData.ot2]))
-      break
-    case "3:3":
-      if (readingData.ot3)
-        readings.push(toReading("Old Testament", [readingData.ot3]))
-      break
-    default:
-      break
+  if (!readingData) return []
+  if (readingFormat === "family") {
+    return readingData.family
+      ? [{ title: "Daily Reading", reading: readingData.family }]
+      : []
   }
-
-  if (includesPsalmsAndNt && readingData.psalms)
-    readings.push(toReading("Psalms", [readingData.psalms]))
-  if (includesPsalmsAndNt && readingData.nt)
-    readings.push(toReading("New Testament", [readingData.nt]))
-
+  const readings = []
+  const otKey = OT_KEY_BY_PLAN[readingFormat]
+  if (otKey && readingData[otKey]) {
+    readings.push({ title: "Old Testament", reading: readingData[otKey] })
+  }
+  if (readingData.psalms) {
+    readings.push({ title: "Psalms", reading: readingData.psalms })
+  }
+  if (readingData.nt) {
+    readings.push({ title: "New Testament", reading: readingData.nt })
+  }
   return readings
 }
 
+const openReading = (passages) => {
+  const url = `https://www.esv.org/${passages
+    .map((x) => window.encodeURIComponent(x.reading))
+    .join(";")}/`
+  window.open(url, "_blank")
+}
+
 export function Readings() {
-  const { data, planTimeframe } = useReading()
+  const { data, loadedDay, planTimeframe } = useReading()
   const readings = loadReadings(planTimeframe, data)
 
   return (
     <div className="content">
       <div className="content-inner">
-        <ReadingList readings={readings} />
+        {readings.length ? (
+          <div>
+            {readings.map((item) => (
+              <div key={item.title} className="card reading">
+                <div className="reading-header">{item.title}</div>
+                <div className="reading-body">
+                  <span className="reading-passage">{item.reading}</span>
+                  <button
+                    type="button"
+                    className="btn-contained read-button"
+                    onClick={() => openReading([item])}
+                  >
+                    <LibraryBooksIcon size={20} className="btn-start-icon" />
+                    Read
+                  </button>
+                </div>
+              </div>
+            ))}
+            <div className="reading-actions-row">
+              <button
+                type="button"
+                className="btn-contained read-all-button"
+                onClick={() => openReading(readings)}
+              >
+                <LibraryBooksIcon size={20} className="btn-start-icon" />
+                Read All
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="card reading">
+            <div className="reading-header">No readings today</div>
+            {loadedDay && isWeekend(loadedDay) ? (
+              <div className="reading-body">
+                Consider meditating on other readings, sermon texts, or catching
+                up on last week's readings...
+              </div>
+            ) : null}
+          </div>
+        )}
       </div>
     </div>
   )

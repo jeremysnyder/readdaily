@@ -1,16 +1,10 @@
-import CheckIcon from "@mui/icons-material/Check"
-import DarkModeIcon from "@mui/icons-material/DarkMode"
-import LightModeIcon from "@mui/icons-material/LightMode"
-import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness"
-import Divider from "@mui/material/Divider"
-import IconButton from "@mui/material/IconButton"
-import Link from "@mui/material/Link"
-import Paper from "@mui/material/Paper"
-import ToggleButton from "@mui/material/ToggleButton"
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup"
-import Typography from "@mui/material/Typography"
-import React from "react"
 import { ACCENT_COLORS, useReading } from "../context/ReadingContext"
+import {
+  CheckIcon,
+  DarkModeIcon,
+  LightModeIcon,
+  SettingsBrightnessIcon,
+} from "./icons"
 
 export function Info() {
   const { themeMode, updateThemeMode, accentColor, updateAccentColor } =
@@ -19,74 +13,56 @@ export function Info() {
   return (
     <div className="content">
       <div className="content-inner">
-        <Paper style={{ margin: 10, padding: 16 }} elevation={3}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-              gap: 8,
-            }}
-          >
-            <Typography variant="subtitle1" fontWeight="bold">
-              Appearance
-            </Typography>
-            <ToggleButtonGroup
-              value={themeMode}
-              exclusive
-              onChange={(_, nextMode) => {
-                if (nextMode !== null) updateThemeMode(nextMode)
-              }}
-              size="small"
-              color="primary"
-              aria-label="theme mode"
-            >
-              <ToggleButton value="system" aria-label="system theme">
-                <SettingsBrightnessIcon
-                  fontSize="small"
-                  style={{ marginRight: 6 }}
-                />
+        <div className="paper-elevated info-card">
+          <div className="info-row">
+            <div className="info-subtitle">Appearance</div>
+            <div className="toggle-group" role="group" aria-label="theme mode">
+              <button
+                type="button"
+                className={`toggle-button${themeMode === "system" ? " is-selected" : ""}`}
+                aria-label="system theme"
+                aria-pressed={themeMode === "system"}
+                onClick={() => updateThemeMode("system")}
+              >
+                <SettingsBrightnessIcon size={20} className="toggle-icon" />
                 Device
-              </ToggleButton>
-              <ToggleButton value="light" aria-label="light theme">
-                <LightModeIcon fontSize="small" style={{ marginRight: 6 }} />
+              </button>
+              <button
+                type="button"
+                className={`toggle-button${themeMode === "light" ? " is-selected" : ""}`}
+                aria-label="light theme"
+                aria-pressed={themeMode === "light"}
+                onClick={() => updateThemeMode("light")}
+              >
+                <LightModeIcon size={20} className="toggle-icon" />
                 Light
-              </ToggleButton>
-              <ToggleButton value="dark" aria-label="dark theme">
-                <DarkModeIcon fontSize="small" style={{ marginRight: 6 }} />
+              </button>
+              <button
+                type="button"
+                className={`toggle-button${themeMode === "dark" ? " is-selected" : ""}`}
+                aria-label="dark theme"
+                aria-pressed={themeMode === "dark"}
+                onClick={() => updateThemeMode("dark")}
+              >
+                <DarkModeIcon size={20} className="toggle-icon" />
                 Dark
-              </ToggleButton>
-            </ToggleButtonGroup>
+              </button>
+            </div>
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-              gap: 8,
-              marginTop: 10,
-            }}
-          >
-            <Typography variant="subtitle1" fontWeight="bold">
-              Accent Color
-            </Typography>
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div className="info-row info-row-spaced">
+            <div className="info-subtitle">Accent Color</div>
+            <div className="swatch-list">
               {Object.entries(ACCENT_COLORS).map(([key, cfg]) => {
                 const selected = accentColor === key
                 return (
-                  <IconButton
+                  <button
                     key={key}
+                    type="button"
                     aria-label={cfg.label}
                     onClick={() => updateAccentColor(key)}
+                    className="swatch-button"
                     style={{
-                      width: 32,
-                      height: 32,
-                      padding: 0,
-                      borderRadius: "50%",
                       backgroundColor: cfg.main,
-                      color: "#ffffff",
                       border: selected
                         ? "2px solid currentColor"
                         : "2px solid transparent",
@@ -95,84 +71,64 @@ export function Info() {
                         : "0 1px 3px rgba(0, 0, 0, 0.3)",
                     }}
                   >
-                    {selected ? <CheckIcon fontSize="small" /> : null}
-                  </IconButton>
+                    {selected ? <CheckIcon size={20} /> : null}
+                  </button>
                 )
               })}
             </div>
           </div>
 
-          <Divider style={{ margin: "14px 0" }} />
+          <hr className="divider" />
 
-          <div
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-              gap: 8,
-              marginBottom: 6,
-            }}
-          >
-            <Typography variant="h6" component="h3" fontWeight="bold">
-              Read Daily
-            </Typography>
-            <Typography variant="caption" color="text.secondary">
-              Version 2026.0
-            </Typography>
+          <div className="info-header-row">
+            <h3 className="info-heading">Read Daily</h3>
+            <span className="info-caption">Version 2026.0</span>
           </div>
 
-          <Typography variant="body1" paragraph style={{ marginBottom: 12 }}>
+          <p className="info-body1">
             Read Daily provides a systematic and sustainable path through the
             Scriptures, with weekday readings that leave weekends free for
             catching up, sermon reflection, or deeper study. Choose a reading
             plan from the selector at the bottom of your screen:
-          </Typography>
+          </p>
 
-          <Typography
-            variant="subtitle1"
-            fontWeight="bold"
-            style={{ marginBottom: 2 }}
-          >
+          <div className="info-subtitle info-section-title">
             1-Year & 3-Year Plans
-          </Typography>
-          <Typography variant="body2" paragraph style={{ marginBottom: 12 }}>
+          </div>
+          <p className="info-body2">
             Read the Psalms twice and the New Testament once each year. The Old
             Testament is divided into three tracks—read all three together to
             complete the entire Bible in a single year, or follow one track per
             year to read through the Old Testament over three years.
-          </Typography>
+          </p>
 
-          <Typography
-            variant="subtitle1"
-            fontWeight="bold"
-            style={{ marginBottom: 2 }}
-          >
+          <div className="info-subtitle info-section-title">
             Family Readings
-          </Typography>
-          <Typography variant="body2" paragraph style={{ marginBottom: 4 }}>
+          </div>
+          <p className="info-body2 info-body2-last">
             A single chapter each weekday offering a guided overview of the
             Bible in a year—moving through Old Testament narratives, Psalms,
             and the Prophets into the Gospels, Acts, Epistles, and Revelation.
-          </Typography>
+          </p>
 
-          <Divider style={{ margin: "14px 0" }} />
+          <hr className="divider" />
 
-          <Typography variant="caption" color="text.secondary" component="p">
+          <p className="info-caption info-footer">
             Scripture reading links open{" "}
-            <Link
+            <a
+              className="info-link"
               href="https://www.esv.org"
               target="_blank"
               rel="noopener noreferrer"
             >
               ESV.org
-            </Link>
+            </a>
             . The ESV® Bible (The Holy Bible, English Standard Version®), © 2001
             by Crossway, a publishing ministry of Good News Publishers. ESV Text
             Edition: 2025. All rights reserved. Read Daily is an independent
             tool and is not affiliated with or endorsed by Crossway.
-          </Typography>
-        </Paper>
+          </p>
+        </div>
       </div>
     </div>
   )

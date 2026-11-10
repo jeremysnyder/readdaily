@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   use,
   useCallback,
@@ -9,11 +9,11 @@ import React, {
 import readingPlanData from "virtual:reading-plan"
 
 export const isWeekend = (date) => {
-  const day = (date instanceof Date ? date : new Date(date)).getDay()
+  const day = date.getDay()
   return day === 0 || day === 6
 }
 
-export const getIsoWeek = (date) => {
+const getIsoWeek = (date) => {
   const d = new Date(
     Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
   )
@@ -23,7 +23,7 @@ export const getIsoWeek = (date) => {
   return Math.ceil(((d - yearStart) / 86400000 + 1) / 7)
 }
 
-export const addDays = (date, days) => {
+const addDays = (date, days) => {
   const next = new Date(date)
   next.setDate(next.getDate() + days)
   return next
@@ -38,9 +38,7 @@ export const formatTitleDate = (date) =>
 
 const readingDay = (date) => {
   if (isWeekend(date)) return null
-  const readingsPerWeek = 5
-  const week = getIsoWeek(date) - 1 // Week should be zero based for math
-  return week * readingsPerWeek + date.getDay()
+  return (getIsoWeek(date) - 1) * 5 + date.getDay()
 }
 
 export const ACCENT_COLORS = {
@@ -49,36 +47,31 @@ export const ACCENT_COLORS = {
     main: "#37474f",
     light: "#62727b",
     dark: "#102027",
-    contrastText: "#ffffff",
   },
   blue: {
     label: "Blue",
     main: "#1976d2",
     light: "#42a5f5",
     dark: "#1565c0",
-    contrastText: "#ffffff",
   },
   rust: {
     label: "Rust",
     main: "#a0522d",
     light: "#c17953",
     dark: "#7c3b1b",
-    contrastText: "#ffffff",
   },
   maroon: {
     label: "Maroon",
     main: "#7b1e26",
     light: "#a3464c",
     dark: "#530b12",
-    contrastText: "#ffffff",
   },
 }
 
-export const ReadingContext = createContext()
+const ReadingContext = createContext()
 
 export function ReadingProvider({ children }) {
   const [loadedDay, setLoadedDay] = useState(() => new Date())
-  const [loading, setLoading] = useState(false)
   const [showConfig, setShowConfig] = useState(false)
   const [planTimeframe, setPlanTimeframe] = useState(
     () => localStorage.getItem("readDaily-planType") || "1"
@@ -91,9 +84,7 @@ export function ReadingProvider({ children }) {
     return saved && ACCENT_COLORS[saved] ? saved : "gray"
   })
   const [systemPrefersDark, setSystemPrefersDark] = useState(
-    () =>
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
+    () => window.matchMedia("(prefers-color-scheme: dark)").matches
   )
 
   useEffect(() => {
@@ -112,7 +103,10 @@ export function ReadingProvider({ children }) {
 
   useEffect(() => {
     const palette = ACCENT_COLORS[accentColor] || ACCENT_COLORS.gray
-    document.documentElement.style.setProperty("--accent-color", palette.main)
+    const rootStyle = document.documentElement.style
+    rootStyle.setProperty("--accent-color", palette.main)
+    rootStyle.setProperty("--accent-light", palette.light)
+    rootStyle.setProperty("--accent-dark", palette.dark)
     const metaThemeColor = document.querySelector('meta[name="theme-color"]')
     if (metaThemeColor) {
       metaThemeColor.setAttribute("content", palette.main)
@@ -121,13 +115,8 @@ export function ReadingProvider({ children }) {
 
   const data = useMemo(() => {
     const day = readingDay(loadedDay)
-    const dayReadings = day ? readingPlanData[String(day)] || {} : {}
-    return { date: loadedDay, ...dayReadings }
+    return day ? readingPlanData[day] || {} : {}
   }, [loadedDay])
-
-  const changeDay = useCallback((day) => {
-    setLoadedDay(day instanceof Date ? new Date(day) : new Date(day))
-  }, [])
 
   const prevDay = useCallback(() => {
     setLoadedDay((prev) => addDays(prev, -1))
@@ -157,10 +146,7 @@ export function ReadingProvider({ children }) {
   const value = useMemo(
     () => ({
       data,
-      loading,
-      setLoading,
       loadedDay,
-      changeDay,
       prevDay,
       nextDay,
       planTimeframe,
@@ -168,23 +154,19 @@ export function ReadingProvider({ children }) {
       showConfig,
       setShowConfig,
       themeMode,
-      resolvedTheme,
       updateThemeMode,
       accentColor,
       updateAccentColor,
     }),
     [
       data,
-      loading,
       loadedDay,
-      changeDay,
       prevDay,
       nextDay,
       planTimeframe,
       loadPlanType,
       showConfig,
       themeMode,
-      resolvedTheme,
       updateThemeMode,
       accentColor,
       updateAccentColor,
